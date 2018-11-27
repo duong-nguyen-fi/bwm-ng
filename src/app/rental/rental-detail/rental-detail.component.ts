@@ -16,9 +16,10 @@ export class RentalDetailComponent implements OnInit {
   constructor(private route: ActivatedRoute, private rentalService: RentalService) { }
 
   ngOnInit() {
+    this.rental= new Rental();
     this.route.paramMap.subscribe(
       (params) => {
-        console.log(params);
+        // console.log(params);
         this.getRental(params.get('rentalId'));
       }
     );
@@ -28,11 +29,11 @@ export class RentalDetailComponent implements OnInit {
     this.rentalService.getRentalsById(rentalId).subscribe(
       (rental) => {
         this.rental = rental;
-        console.log(rental.category);
+        // console.log(rental.category);
       },
       (err) => {
 
-      } 
+      }
     );
   }
 
